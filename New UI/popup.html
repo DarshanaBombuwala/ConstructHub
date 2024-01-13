@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <title>Document</title>
+</head>
+<body id="pop-body">
+    <div  class="container" >
+        <button id="closeModalBtn" class="close-button"  >✖</button>
+        <div class="heading">
+            <p class="form-heading">Request Quotation</p>
+        </div>
+        <div class="form-overview">
+            <p>Professional</p>
+        </div>
+        <form class="form-container">
+            <div class="row-inputs">
+                <div class="err-wrap">
+                    <div class="text-fields description">
+                        <label for="description"><i class='bx bxs-notepad'></i>Description</label>
+                        <textarea id="description" name="description" rows="4" cols="50" placeholder="Explain your Requirement"></textarea>
+                    </div>
+                    <label class="err-msg">This is an example</label>
+                </div>
+                <div class="err-wrap">
+                    <div class="text-fields specialRequest">
+                        <label for="specialRequest"><i class='bx bxs-star' ></i>Special Requirements</label>
+                        <textarea id="specialRequest" name="specialRequest" rows="4" cols="50" placeholder="Enter your Special Requests"></textarea>
+                    </div>
+                    <label class="err-msg">This is an example</label>
+                </div>
+                <div class="err-wrap upload-img">
+                    <label><i class='bx bxs-cloud-upload'></i>Upload Images</label>
+                    <div class="file-upload">
+                        <label for="imageUpload" id="uploadLabel">
+                            <img src="upload.jpeg" alt="Upload Image" id="uploadedImage">
+                        </label>
+                        <input type="file" id="imageUpload" name="imageUpload" accept="image/*" style="display: none;">
+                    </div>
+                    
+                    <div class="file-upload">
+                        
+                        <label for="imageUpload" id="uploadLabel">
+                            <img src="upload.jpeg" alt="Upload Image">
+                        </label>
+                        <input type="file" id="imageUpload" name="imageUpload" accept="image/*" style="display: none;">
+                    </div>
+                    <div class="file-upload">
+                        
+                        <label for="imageUpload" id="uploadLabel">
+                            <img src="upload.jpeg" alt="Upload Image">
+                        </label>
+                        <input type="file" id="imageUpload" name="imageUpload" accept="image/*" style="display: none;">
+                    </div>
+                    <div class="file-upload">
+                        
+                        <label for="imageUpload" id="uploadLabel">
+                            <img src="upload.jpeg" alt="Upload Image">
+                        </label>
+                        <input type="file" id="imageUpload" name="imageUpload" accept="image/*" style="display: none;">
+                    </div>
+                    <div class="file-upload">
+                        
+                        <label for="imageUpload" id="uploadLabel">
+                            <img src="upload.jpeg" alt="Upload Image">
+                        </label>
+                        <input type="file" id="imageUpload" name="imageUpload" accept="image/*" style="display: none;">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="btn-container">
+            <button>Submit</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+         $(document).ready(function () {
+        $("#imageUpload").change(function () {
+            var input = this;
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#uploadedImage').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        });
+
+        // Trigger file input click when the label is clicked
+        $("#uploadLabel").click(function () {
+            $("#imageUpload").click();
+        });
+    });
+    </script>
+    
+</body>
+</html>
