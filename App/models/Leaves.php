@@ -1,41 +1,44 @@
 <?php
 
-// require "../core/Main_model.php";
+class Leave extends Main_model {
 
-class Leaves extends Main_model{
+    public $errors = [];
+    protected $table = 'leaves';
+    protected $allowedColumns = [
+        'startdate',
+        'enddate',
+        'duration',
+        'leavetype',
+        'reason',
+        'status',
+        'userid',
+    ];
     
-    public $tablename = "leaves";
 
+    public function validate($data){
+        $this->errors = [] ;
+
+        if(empty($data['startdate'])){
+            $this->errors['startdate'] = "A Start Date is required";
+        }
+        if(empty($data['enddate'])){
+            $this->errors['enddate'] = "An End Date is required";
+        }
+        if(empty($data['duration'])){
+            $this->errors['duration'] = "A Duration is required";
+        }
+        if(empty($data['leavetype'])){
+            $this->errors['leavetype'] = "A Leave Type is required";
+        }
+        if(empty($data['reason'])){
+            $this->errors['reason'] = "A Reason is required";
+        }
+       
+        
+
+        if(empty($this->errors)){
+            return true;
+        }
+        return false;
+    }   
 }
-
-// $Assarr_1 = [
-//     "emp_id" => $_POST["emp_id"],
-//     "requested_date" => $_POST["requested_date"],
-//     "first_name" => $_POST["first_name"],
-//     "last_name" => $_POST["last_name"],
-//     "reason" => $_POST["reason"],
-// ];
-$Assarr_2 = [
-    "emp_id" => "e_c02", 
-    "requested_date" => "2023-06-17", 
-    "first_name" => "sohani", 
-    "last_name" => "hemanthi", 
-    "reason" => "I have a toothache",
-];
-$Assarr_3 = [
-    "requested_date" => "2023-06-19", 
-    "reason" => "I have a cold",
-];
-$where = [
-"emp_id" => "e_c01", 
-];
-$columns = ["emp_id", "first_name"];
-
-// $leave = new Leaves;
-// $leave->add($_POST);
-//$leave->add($Assarr_2);
-//$leave->retrieve($columns, $where);
-//$leave->retrieve($columns);
-//$leave->retrieve([], $where);
-//$leave->update($Assarr_3, $where);
-//$leave->delete($where);

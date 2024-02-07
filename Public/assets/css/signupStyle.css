@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #f5f5f9;
+}
+
+.container{
+    width: 80%;
+    margin: 5% auto;
+    display: flex;
+    height: 625px;
+    box-shadow: 0 12px 18px rgba(54,176,138, 0.005);
+    border-radius: 6px;
+    background: #fff;
+}
+
+.login-link{
+    background-color: #ff9100;
+    background-image: url('http://localhost/groupProject/Construct_hub_grp/Public/Images/signup1.svg');
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    width: 30%;
+    padding: 3%;
+
+}
+
+.signup-form-container{
+    width: 70%;
+    padding: 3% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.side-heading{
+    font-weight: 800;
+    color: #000000;
+    font-size: 1.7rem;
+    margin: 25% 0 5%;
+
+}
+
+.bg-text{
+    color: #000000;
+    font-weight: 500;
+    text-align: center;
+}
+
+a.loginbtn{
+    text-decoration: none;
+    color: #0011ff;
+    width: 70%;
+    font-weight: 700;
+    display: inline-block;
+    margin: 7% 15%;
+    text-align: center;
+    border: 2px solid #0011ff;
+    border-radius: 24px;
+    padding: 3% 0;
+    
+    
+
+}
+
+a.loginbtn:hover{
+    color: #000000;
+    background-color: #0011ff;
+}
+
+.big-heading{
+    font-weight: 900;
+    font-size: 2rem;
+    color: #000000;
+
+}
+
+.progress-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4% 0;
+    width: 70%;
+
+}
+.progress-bar .stage{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.progress-bar .tool-tip{
+    color: #000000;
+    font-weight: 600;
+}
+
+.stageno{
+    margin: 6% 0;
+    padding: 2% 7%;
+    border-radius: 50%;
+    background-color: #ff9100;
+}
+
+.button-container{
+    display: flex;
+    align-items: center;
+    margin: 4% 0;
+
+}
+
+.text-fields{
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 2%;
+    margin: 1% 2%;
+    border-radius: 4px;
+    color: #84848d;
+}
+
+.text-fields input{
+    border: none;
+    outline: none;
+    color: #84848d;
+    background: inherit;
+    width: 200%;
+    margin-left: 4%;
+    font-size: 0.9rem;
+
+}
+
+.signup-form-content{
+    width: 100%;
+    padding: 0 3%;
+
+}
+
+.text-fields.fname:after{
+    content: 'First name';
+    background-color: #fff;
+    position: relative;
+    padding: 0 4%;
+    left: -230px;
+    width: 334px;
+    color: #000000;
+    top: -24px;
+}
+
+.text-fields.lname:after{
+    content: 'Last name';
+    background-color: #fff;
+    position: relative;
+    padding: 0 4%;
+    left: -216px;
+    width: 302px;
+    color: #000000;
+    top: -24px;
+}
+
+.text-fields.initial:after{
+    content: 'Full Name';
+    background-color: #fff;
+    position: relative;
+    padding: 0 4%;
+    left: -210px;
+    width: 302px;
+    color: #000000;
+    top: -33px;
+}
+
+
+.text-fields.email:after{
+    content: 'Email';
+    background-color: #fff;
+    position: relative;
+    padding: 0 4%;
+    left: -225px;
+    width: 334px;
+    color: #000000;
+    top: -24px;
+}
+
+.text-fields.pw:after{
+    content: 'Password';
+    background-color: #fff;
+    position: relative;
+    padding: 0 4%;
+    left: -210px;
+    width: 334px;
+    color: #000000;
+    top: -24px;
+}
+
+.text-fields.rpw:after{
+    content: 'Confirm';
+    background-color: #fff;
+    position: relative;
+    padding: 0 4%;
+    left: -210px;
+    width: 334px;
+    color: #000000;
+    top: -24px;
+}
+
+.text-fields.address:after{
+    content: 'Address';
+    background-color: #fff;
+    position: relative;
+    padding: 0 4%;
+    left: -210px;
+    width: 334px;
+    color: #000000;
+    top: -24px;
+}
+
+
+.text-fields.username:after{
+    content: 'User Name';
+    background-color: #fff;
+    position: relative;
+    padding: 0 4%;
+    left: -216px;
+    width: 310px;
+    color: #000000;
+    top: -24px;
+}
+
+.text-fields.pnb:after{
+    content: 'Phone';
+    background-color: #fff;
+    position: relative;
+    padding: 0 4%;
+    left: -210px;
+    width: 334px;
+    color: #000000;
+    top: -24px;
+}
+
+
+.pagination-btns{
+    display: flex;
+    justify-content: center;
+    margin: 4%;
+    padding: 0 4%;
+
+
+}
+
+.nextPage, .previousPage{
+    background-color: #ff9100;
+    color: #000000;
+    width: 45%;
+    margin-right: 4%;
+    cursor: pointer;
+    padding: 2%;
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+
+.nextPage:hover, .previousPage:hover{
+    background-color: #ffa32b;
+}
+.err-msg {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 5px;
+    width: 100%;
+    text-align: left;
+    display: block;
+    margin-left: 9px;
+}
+
+.tc-container input{
+    width: 4%;
+    margin-left: 4%;
+    accent-color: #ff9100;
+}
+
+.tc a{
+    text-decoration: none;
+    color: #696cff;
+}
+
+label.tc{
+    margin-left: 10%;
+
+}
+
+

@@ -3,9 +3,10 @@
 class Main_controller {
     
     // fetch required controller page.
-    public function load_view(){
-        $view = split_path()[0];
-        $operation = split_path()[1] ?? "";
+    public function view($view, $data = []){
+        
+        extract($data);
+
         $view_page =  "../App/views/".ucfirst($view)."_view.php";
         if (file_exists($view_page)){
             require $view_page;

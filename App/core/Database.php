@@ -1,42 +1,49 @@
 <?php
 
-trait Database{
+class Database{
 
     // connect to a MySQL database from PHP using PDO.
     private function connect(){
-        require "config.php";
-
-        $dsn = "mysql:host=$host;dbname=$db;charset=UTF8";
-
+        $str = DBDRIVER.":host=".DBHOST.";dbname=".DBNAME;
         try {
-            $pdo = new PDO($dsn, $user, $password);
+            $con = new PDO($str, DBUSER, DBPASS);
+            return $con;
+        } catch (PDOException $e) {
+            echo "Connection failed: " . $e->getMessage();
+        }
+        
+    }
 
-            if ($pdo) {
-                // echo "Connected to the $db database successfully!";
-                return $pdo;
+    public function query($query,$data = [], $type = 'object')
+    {
+    $con =$this->connect();
+   // show($con);
+  // echo json_encode(['message' => $con]);
+    $stm = $con->prepare($query);
+    //show($stm);
+   // echo json_encode(['message' => $stm]);
+    if($stm){
+       // show("here23");
+       //echo json_encode(['message' => $data]);
+       $check = $stm->execute($data);
+      //  echo json_encode(['message' => $check]);
+    if($check){
+            
+            if($type != 'object'){
+                $type = PDO::FETCH_ASSOC;
+            }else{
+                $type = PDO::FETCH_OBJ;
             }
-        } 
-        catch (PDOException $e) {
-            echo $e->getMessage();
-            return false;
-        }
-    }
 
-    // A prepared statement is a template for executing one or more SQL statements with different values.
-    //  A prepared statement is highly efficient and helps protect the application against SQL injections.
-    public function prepare_stm($sql, $As_arr){
-        $pdo = $this->connect();
-        if ($pdo){
-            $statement = $pdo->prepare($sql);
-            $statement->execute($As_arr);
-            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-            // show($result);
+            $result = $stm->fetchAll($type);
+
+            if(is_array($result) && count($result)>0){
             return $result;
-        }
-        else{
-            return false;
-        }
-
+            }
+        }  
     }
+    return false;
+    }
+   
 }
-?>
+

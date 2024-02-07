@@ -1,17 +1,23 @@
 <?php
 
 if($_SERVER["SERVER_NAME"] == "localhost"){
-    if (!defined('my_abs_path')) define('my_abs_path', "http://localhost/MVC/Public/");
+   define('DBHOST','localhost');
+   define('DBNAME','constructhub_db');
+   define('DBUSER','root');
+   define('DBPASS','');
+   define('DBDRIVER','mysql');
+   define('ROOT','http://localhost/groupProject/Construct_hub_grp/Public');
   
 }
 else{
-    define("my_abs_path", "http://mywebsite");
+    define('DBHOST','localhost');
+    define('DBNAME','constructhub_db');
+    define('DBUSER','root');
+    define('DBPASS','');
+    define('DBDRIVER','mysql');
+
+
+
+
 }
-
-
-$host = 'localhost';
-$db = 'constructhub';
-$user = 'root';
-$password = '';
-?>
 

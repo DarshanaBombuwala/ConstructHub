@@ -5,9 +5,7 @@
 class Error_controller extends Main_controller{
     public function index(){
         show("error - 404");
+        $this->view('Error_controller');
     }
 }
 
-$view = new Error_controller;
-$view->index();
-$view->load_view();

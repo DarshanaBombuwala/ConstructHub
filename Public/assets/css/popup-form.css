@@ -1,0 +1,271 @@
+
+
+
+
+.popup-form-container {
+    font-family: "Poppins",sans-serif;
+    margin: 5% auto;
+    flex-direction: column;
+    position: absolute;
+    width: 70%;
+    top: -40px;
+    align-items: center;
+    border-radius: 20px 15px 20px 20px;
+    background-color: rgb(255, 255, 255);
+   /* Set a maximum height if needed */
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+   display: none;
+   height: auto;
+   margin-left: 13%;
+}
+
+.close-button {
+    position: absolute;
+    left: 94%;
+    top: 12px;
+    width: 30px; /* Adjust the size as needed */
+    height: 30px; /* Adjust the size as needed */
+    /* Set border-radius to 0 for a square shape */
+    background-color: inherit;
+    color: #001eff;
+    border: 2px solid #001eff;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.close-button:hover{
+    /* Adjust the size as needed */
+   
+    color: #ff0000;
+    border-color: #ff0000;
+  
+}
+
+.form-heading {
+    font-weight: 500;
+    font-size: 25px;
+    color: #000000;
+    margin-top: 25px; /* Added 'solid' as the border style */
+}
+
+.form-overview p{
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #fa6800;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.form-container{
+    width: 95%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    overflow-y: auto; /* Add this line to enable vertical scrollbar */
+    max-height: 70vh; 
+    margin-top: 3%;
+}
+.row-inputs{
+    width: 95%;
+    display: flex;
+    
+
+}
+
+
+.row-inputs-textarea .err-wrap{
+    width: 100%;
+    margin-bottom: 20px;
+    margin-left: 3%;
+
+}
+
+.row-inputs-img-upload .err-wrap{
+    width: 100%;
+    margin-bottom: 20px;
+    margin-left: 3%;
+}
+.row-inputs-select .err-wrap{
+    width: 100%;
+    margin-bottom: 20px;
+    margin-left: 3%;
+}
+
+.err-wrap{
+    width: 50%;
+    margin-bottom: 20px;
+    margin-left: 3%;
+}
+
+.err-wrap label{
+    font-weight: 500;
+    font-size: 1rem;
+    display: block;
+    padding-left: 10px;
+}
+
+.err-wrap  .bxs-cloud-upload{
+    margin-right: 5px;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.text-fields{
+    display: flex;
+    flex-direction: column;
+    
+   
+}
+
+.drop-down-options{
+    display: flex;
+    flex-direction: column;
+}
+
+.text-fields label{
+    font-weight: 500;
+    font-size: 1rem;
+    padding-left: 10px;
+}
+
+.text-fields label i,
+.drop-down-options label i{
+    margin-right: 5px;
+}
+
+.text-fields textarea{
+    border: none;
+    outline: none;
+    background: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    color: #84848d;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 5px 0px 0px 20px;
+    
+}
+
+.text-fields input{
+    border: none;
+    outline: none;
+    background: #f7f7f7;;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    color: #84848d;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 4% 5% 4% 5%;
+    
+}
+.drop-down-options select{
+    border: none;
+    outline: none;
+    background: #f7f7f7;;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    color: #84848d;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 1.5% 3% 1.5% 3%;
+    cursor: pointer;
+    position: relative;
+}
+.drop-down-options option{
+    position: absolute;
+    background-color: #f7f7f7;;
+    color: #84848d;
+    width: 100%; /* Make the select element fill the container */
+    margin-left: 30%;
+    
+    
+}
+
+
+.text-fields textarea:not(:placeholder-shown) {
+    color: #2e2e2e;
+}
+.err-wrap .err-msg{
+    font-size: 14px;
+    color: #ff0000;
+}
+
+.btn-container{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 40%;
+}
+
+.btn-container button{
+    background-color: #ff9100;
+    color: #000000;
+    width: 100%;
+    cursor: pointer;
+    padding: 2%;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+
+.btn-container button:hover{
+    background-color: #fda838;
+    color: #000000;
+    font-weight: 900;
+    
+}
+.file-upload {
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+    width: 19%;
+    height: 100px;
+    
+}
+.img-close-button {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 1px solid #2e2e2e;
+    color: rgb(127, 126, 126); /* Change this to your desired text color */
+}
+.hidden {
+    display: none;
+}
+
+.img-close-button:hover{
+    color: #ff0000;
+    border-color: #ff0000;
+}
+
+
+#uploadLabel {
+    cursor: pointer;
+}
+
+#uploadLabel img {
+    width: 100%; /* Set the desired width */
+    height: 75%; /* Set the desired height */
+    border: 2px solid #ccc; /* Add a border for styling */
+    border-radius: 8px;
+    
+     /* Optional: Add border-radius for rounded corners */
+}
+
+
+
+#imageUpload {
+    display: none;
+}
