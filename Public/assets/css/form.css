@@ -1,0 +1,137 @@
+.modal {
+    display: none;
+    position: fixed;
+    top: 1px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(3 1 1 / 64%);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #e5c982;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: auto;
+    width: 70%;
+     
+}
+
+#formContainer form {
+    margin-bottom: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-height: 350px; 
+    overflow: auto;
+}
+
+#formContainer h2 {
+    color: #333;          
+    font-size: 24px;       
+    font-weight: bold;     
+    margin-bottom: 16px;    
+    text-align: center;     
+}
+
+#formContainer label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 15px;
+    /* font-weight: bold; */
+    color: #87621d;
+}
+
+#formContainer input, #formContainer textarea {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+/* Checkbox and radio styles */
+#formContainer input[type="checkbox"]{
+    margin-right: 5px;
+    color:#2db8b8
+}
+
+/* Button styles */
+#formContainer button, #formContainer reset {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 8px 20px;
+    margin-left: 63px;
+    font-size: 14px;
+    border: none;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+#formContainer button:hover{
+    background-color: #45a049;
+}
+
+#formContainer button:active, #formContainer reset:active {
+    background-color: #398439;
+}
+
+/* Reset button styles */
+#formContainer reset {
+    background-color: #f44336;
+}
+
+#formContainer reset:hover{
+    background-color: #d32f2f;
+}
+
+#formContainer reset:active{
+    background-color: #b71c1c;
+}
+
+#formContainer select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+#formContainer select option {
+    background-color: #fff;
+    color: #333;
+    padding: 8px;
+    font-size: 12px;
+}
+
+#formContainer select option:hover {
+    background-color: #e0e0e0;
+}
+
+#formContainer select option:checked {
+    background-color: #b3e0ff;
+}
+
+#formContainer form #closebtn {
+    position: absolute;
+    background-color: #cb461e;
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    left: 302px;
+    top: 1px;
+}
+
+

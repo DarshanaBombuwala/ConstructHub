@@ -1,0 +1,399 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+.navbar {
+    width: 100%;
+    height: 7%;
+    position: fixed;
+    background: #fcb026;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3.5%; /* Adjusted padding as a percentage of the width */
+    z-index: 10000;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em; /* Adjusted font size as a relative value */
+    color: #16140e;
+    margin-left: 0;
+    font-family: "mv boli";
+}
+
+.navbar .logo button {
+    margin-right: 2%; /* Adjusted margin as a percentage of the width */
+    font-size: 2.5em; /* Adjusted font size as a relative value */
+    margin-left: -2%; /* Adjusted margin as a percentage of the width */
+    text-decoration: none;
+    color: #000000;
+    background-color: transparent;
+    border: 2px solid #fac031;
+    padding: 1.5%; /* Adjusted padding as a percentage of the width */
+}
+
+
+/* ----------------- */
+.navbar .logo a {
+   
+    /* font-family: 'JCBEuro-Bold-Condensed', 'Gill Sans Bold', 'Arial', 'Helvetica', sans-serif; */
+    font-family: "mv boli";
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: rgb(0, 0, 0);
+    font-weight: 550; /* Use the correct font weight (e.g., 400 for regular, 700 for bold) */
+    letter-spacing: 2px;
+    font-size: 0.9em;
+}
+
+.navbar .nav-middle > ul{
+    display: flex;
+    align-items: center;
+}
+.navbar .nav-middle  ul li.nm-li{
+    margin-right: 75px;
+    cursor: pointer;
+    font-size: 20px;
+    position: relative;
+}
+
+.navbar .nav-middle  ul li a{
+    font-family: 'JCBEuro-Bold-Condensed', 'Gill Sans Bold', 'Arial', 'Helvetica', sans-serif;
+   text-decoration: none;
+   color: rgb(0, 0, 0);
+   font-size: 1.1em;
+   font-weight: 350;
+   padding-left: 10px;
+   padding-right: 10px; 
+}
+
+.navbar .nav-middle  ul li a.res_icon{
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .navbar .nav-middle  ul li a.res_icon{
+        display: block;
+    }
+
+    .navbar .nav-middle  ul li a.res_word{
+        display: none;
+    }
+
+}
+
+.navbar .nav-middle  ul li a:hover{
+    
+    color:rgb(255, 255, 255);
+    transition: 0.3 ease;
+    
+}
+
+.navbar .nav-right > ul{
+    display: flex;
+    align-items: center;
+}
+
+.navbar .nav-right  ul li.nr-li{
+    margin-left: 15px;
+    cursor: pointer;
+    font-size: 17px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar .nav-right  ul li img{
+    width: 40px;
+    height: 40px;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+.navbar .nav-right  ul li.nr-li span{
+    font-size: 13px;
+    font-family: 'JCBEuro-Bold-Condensed', 'Gill Sans Bold', 'Arial', 'Helvetica', sans-serif;
+    color: rgb(0, 0, 0);
+    font-weight: 550;
+    
+}
+
+.navbar .dd-menu{
+    position: absolute;
+    top: 60px;
+    right: -60px;
+    display: flex;
+    flex-direction: column;
+    background: #eeeeee;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    display: none;
+    z-index: 10000;
+    
+
+}
+
+.navbar .dd-menu .dd-top ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center items vertically */
+    margin-top: 10px;
+    border-bottom: 1px solid black; /* Black bottom border */
+}
+
+
+.navbar .dd-menu .dd-top ul li.signin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    height: 30px;
+    background-color: #fac031;
+    border: 1px solid #fac031; /* Choose your desired border color */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    cursor: pointer;
+}
+
+.navbar .dd-menu .dd-top .signup{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.navbar .dd-menu .dd-top ul li.signup a{
+    text-decoration: none;
+    color: rgb(8, 28, 240);
+    font-size: 10px;
+    font-family: 'JCBEuro-Bold-Condensed', 'Gill Sans Bold', 'Arial', 'Helvetica', sans-serif;
+}
+
+
+.navbar .dd-menu .dd-top ul li.signup a:hover{
+    color: #fac031 ;
+}
+
+
+
+
+.navbar .dd-menu .dd-top .signin a{
+    text-decoration: none;
+    color: black;
+    font-family: 'JCBEuro-Bold-Condensed', 'Gill Sans Bold', 'Arial', 'Helvetica', sans-serif;
+
+}
+
+.navbar .dd-menu .dd-top .signin a:hover {
+    text-decoration: underline;
+    text-decoration-color: rgb(0, 0, 0);
+}
+
+
+
+
+
+
+
+.navbar .dd-menu .dd-option{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+
+}
+
+.navbar .dd-menu .dd-option .dd-left{
+    background: #fac031;
+    padding: 15px 20px;
+    border-bottom-left-radius: 15px;
+    
+}
+
+.navbar .dd-menu .dd-option .dd-right{
+    padding: 15px 20px;
+
+}
+
+.navbar .dd-menu .dd-option li {
+    margin-bottom: 10px;
+ /* Optional: Add a smooth transition effect */
+ /* Set the default text color */
+}
+
+.navbar .dd-menu .dd-option .dd-right li:hover {
+    /* Adjust the margin for the hover effect */
+    color: #fac031;
+    text-decoration: underline; /* Set the text color on hover */
+}
+
+
+
+.navbar .dd-menu::before{
+    content: '';
+    position:absolute;
+    top: -32px;
+    right: 57px;
+    border: 14px solid;
+    border-color: transparent transparent #eeeeee transparent;
+
+}
+
+.navbar .nav-right  ul li.li_main.hover .dd-menu{
+    display: flex;
+}
+
+.navbar .nav-right ul li.li_main:hover {
+     /* Set a wider white border on hover */
+    border-color: #ffffff;
+    /* Adjust the padding or height for increased height */
+}
+
+.navbar .nav-right ul li.li_main {
+    border: 2px solid transparent;
+    padding: 1px;
+}
+
+.navbar .nav-right ul li.li-border {
+    border: 2px solid transparent;
+    padding-left: 0px;
+    padding-right: 8px;
+}
+
+.navbar .nav-right ul li.li-border:hover {
+    /* Set a wider white border on hover */
+   border-color: #ffffff;
+   /* Adjust the padding or height for increased height */
+}
+
+.navbar .logo button:hover {
+    border: 2px solid #ffffff; /* Set the border properties in the correct order */
+    cursor: pointer;
+    padding: 10px;
+}
+
+.navbar .nav-right ul li.nr-li::after{
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 100%; /* Position the tooltip below the icon */
+    left: 50%; /* Center the tooltip horizontally */
+    transform: translateX(-50%); /* Center the tooltip horizontally */
+    background-color: #333; /* Tooltip background color */
+    color: #fff; /* Tooltip text color */
+    padding: 6px; /* Add padding to the tooltip */
+    font-size: 9px;
+    border-radius: 5px; 
+    opacity: 0; /* Initially hide the tooltip */
+    transition: opacity 0.3s; /* Add a transition effect */
+ }
+ 
+.navbar .nav-right ul li.nr-li:hover::after {
+         opacity: 1; /* Show the tooltip on hover */
+     }
+
+.navbar .nav-right ul li a.icon{
+    margin-right: 2%;
+    display: none;
+}
+
+@media screen and (max-width: 650px) {
+    .navbar .nav-middle ul li a {
+       display: none;
+    }
+    .navbar .nav-right ul li a.icon{
+      margin-right: 8px;
+      display: block;
+    }
+}
+
+@media screen and (max-width: 650px) {
+
+    .navbar .nav-middle.responsive {
+        position: fixed;
+        top: 41px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        /* background-image: url(../images/homeimg/work.gif); */
+        background-image: url(../images/homeimg/professional3.jpg);
+        z-index: 1000;
+        overflow-y: auto;
+        display: flex;
+        justify-content: center;
+    }
+
+     .navbar .nav-middle.responsive ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+    
+    .navbar .nav-middle.responsive ul li{
+        padding: 4px;
+        width: 70%;
+        opacity: 0.9;
+        display: flex;
+    }
+
+    .navbar .nav-middle.responsive ul li a {
+        float: none;
+        text-align: center;
+        display: flex;
+        width: 300px;
+        height: 38px;
+        font-size: 78%;
+        border-color: #aa3f3f;
+        background-color: #a79242;
+        padding: 20px;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .navbar .nav-middle.responsive ul li a:hover {
+        background-color: #917979;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .navbar .nav-middle.responsive ul li a.glow {
+        animation: glow 5s infinite alternate; /* Change duration and other values as needed */
+    }
+
+    @keyframes glow {
+        from {
+            box-shadow: 0 0 10px #a79242;
+        }
+        to {
+            box-shadow: 0 0 20px #16140b, 0 0 30px #000000;
+        }
+    }
+}
+
+
+@media screen and (max-width: 350px) {
+    .navbar .nav-right ul li.greet {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .navbar .nav-right ul li.greet {
+        font-size: 0.7em;
+    }
+    .navbar .logo a {
+        font-size: 0.7em;
+    }
+}
+@media screen and (max-width: 500px) {
+    .navbar .logo a {
+        font-size: 0.6em;
+    }
+}
+
+/* ............. */
+
