@@ -35,13 +35,15 @@ class Create extends Main_model {
         return false;
     }
 
-    public function firstview($id){
-        $query = "SELECT * FROM $this->table WHERE equipmentTypeId = $id";
+    public function firstview($id,$type){
+        $query = "SELECT * FROM $this->table WHERE $type" . "TypeId = $id";
+        
         $res =$this->query($query);
+        
         if(is_array($res)){
             return $res;
         }
-
+       
         return false;
 
     }

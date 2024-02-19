@@ -15,6 +15,15 @@
             margin: 0;
         }
 
+        .order-details {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin-bottom: 20px;
+        }
+
         .quotation-form {
             background-color: #fff;
             padding: 20px;
@@ -64,6 +73,13 @@
 </head>
 
 <body>
+<div class="order-details">
+            <h2>Summary</h2>
+            <p>Start Date: <span id="startDateDisplay"><?= $data['row'][0]->name ?></span></p>
+            <p>End Date: <span id="endDateDisplay"><?=$data['row'][0]->description?></span></p>
+            <p>Total Cost: <span id="totalCostDisplay"><?=$data['type']?></span></p>
+            <p>Quantity: <span id="quantityDisplay"><?=$data['row'][0]->specialities?></span></p>
+        </div>
     <div class="quotation-form">
         <form action="<?=ROOT?>/product/requestQuotation/create" method="post">
             <label class="form-label" for="name">Description</label>
@@ -77,8 +93,6 @@
 
             <label class="form-label" for="quantity">Profession:</label>
             <input class="form-input" type="text" id="quantity" name="profession" required>
-
-           
 
             <button class="form-button" type="submit">Submit Request</button>
         </form>

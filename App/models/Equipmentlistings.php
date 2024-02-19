@@ -1,6 +1,7 @@
 <?php
 
-class Equipmentlisting extends Main_model {
+class Equipmentlisting extends Main_model
+{
 
     public $errors = [];
     protected $table = 'equipmentsListing';
@@ -9,89 +10,93 @@ class Equipmentlisting extends Main_model {
         'availability',
         'specialities',
         'description',
-        'category',
-        
+        'categoryName',
+
     ];
-    
 
-    public function validate($data){
-        $this->errors = [] ;
 
-        
-        
+    public function validate($data)
+    {
+        $this->errors = [];
 
-        if(empty($this->errors)){
+
+
+
+        if (empty($this->errors)) {
             return true;
         }
         return false;
     }
 
-    public function latest(){
+    public function latest()
+    {
         $query = "SELECT *FROM equipmentsListing ORDER BY equipmentTypeId DESC LIMIT 1";
 
-        $res =$this->query($query);
-        if(is_array($res)){
+        $res = $this->query($query);
+        if (is_array($res)) {
             return $res;
         }
 
         return false;
     }
 
-    public function firstview($id){
+    public function firstview($id)
+    {
         $query = "SELECT * FROM equipmentsListing WHERE equipmentTypeId = $id";
-        $res =$this->query($query);
-        if(is_array($res)){
+        $res = $this->query($query);
+        if (is_array($res)) {
             return $res;
         }
 
         return false;
-
     }
 
-    public function equipmentInstanceCount($id){
+    public function equipmentInstanceCount($id)
+    {
         $query = "SELECT COUNT(*) AS instance_count FROM equipments WHERE equipmentTypeId = $id";
-    
-        $res =$this->query($query);
-        if(is_array($res)){
+
+        $res = $this->query($query);
+        if (is_array($res)) {
             return $res;
         }
 
         return false;
     }
-    public function dates($id=''){
+    public function dates($id = '')
+    {
         $query = "SELECT equipmentid, startDate, endDate
-        FROM equipmentReservation;";
-    
-        $res =$this->query($query);
-        if(is_array($res)){
+        FROM reservationEquipment;";
+
+        $res = $this->query($query);
+        if (is_array($res)) {
             return $res;
         }
 
         return false;
     }
-    public function count(){
+    public function count()
+    {
         $query = "SELECT COUNT(*) as recordCount
-        FROM equipments;";
-    
-        $res =$this->query($query);
-        if(is_array($res)){
+        FROM equipmentsnew;";
+
+        $res = $this->query($query);
+        if (is_array($res)) {
             return $res;
         }
 
         return false;
     }
 
-    public function getColumns(){
-        $query ="SELECT equipmentTypeId, name 
+    public function getColumns()
+    {
+        $query = "SELECT equipmentTypeId, name 
         FROM equipmentsListing;";
 
-        $res =$this->query($query);
-        if(is_array($res)){
+        $res = $this->query($query);
+        if (is_array($res)) {
             return $res;
         }
 
         return false;
     }
-    
 }
-

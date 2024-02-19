@@ -21,7 +21,7 @@
     <div id='main'>
     <div class="form-container">
         <h2>Add Equipment</h2>
-        <form action="process_form.php" method="post">
+        <form action="<?=ROOT?>/rentalmanager/category/create" method="post">
             <!-- Equipment Category Name -->
             <label for="categoryName">Category Name:</label>
             <input type="text" id="categoryName" name="categoryName" required>
@@ -31,6 +31,7 @@
             <select id="availability" name="availability" required>
                 <option value="available">Available</option>
                 <option value="not_available">Not Available</option>
+                <option value="not_available">Disable</option>
             </select>
 
             <!-- Add any other fields you need for your form -->

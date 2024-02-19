@@ -106,7 +106,7 @@ class Rentalmanager extends Main_controller
         $data = [];
         $data['action'] = $action;
         $data['id'] = $id;
-        $listing = new listing('equipments');
+        $listing = new equipmentListing();
 
 
         //show($_POST);
@@ -131,9 +131,9 @@ class Rentalmanager extends Main_controller
                     //echo("here");
                     $listing->insert($_POST);
                     //echo("here44");
-                    $new = $listing->latest();
+                   // $new = $listing->latest();
                     // show($new);
-                    echo json_encode($new);
+                   // echo json_encode($new);
                 }
 
                 $data['errors'] = $listing->errors;
@@ -144,6 +144,8 @@ class Rentalmanager extends Main_controller
             redirect('rentalmanager/Equipmentlisting');
         } else {
             $data['rows'] = $listing->findAll('asc', 'equipmentTypeId');
+            $category= new Create('equipmentCategory',[]);
+            $data['category']=$category->findAll('asc','equipmentCategoryId');
             $this->view('rentalmanager/EquipmentlistingNew', $data);
         }
     }
@@ -216,9 +218,25 @@ class Rentalmanager extends Main_controller
         if (!Auth::logged_in() || !Auth::is_rmanager()) {
             redirect('homepage');
         }
+        $data = [];
+        $data['action'] = $action;
+        $data['id'] = $id;
         if($action=='create'){
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                
+                $newCategory= [
+                    'table' => 'equipmentCategory',
+                    'allowedColumns' => ['availability', 'categoryName'],
+                ];
+                $category = new Create($newCategory['table'],$newCategory['allowedColumns']);
+                $category->insert($_POST);
+                $this->view('rentalmanager/EquipmentCategory');
+
+            }else{
+                $this->view('rentalmanager/CategoryForm');
+            }
             
-            $this->view('rentalmanager/CategoryForm');
+            
         }else if($action=="edit"){
 
         }else if($action=="delete"){

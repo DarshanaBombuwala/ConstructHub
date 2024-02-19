@@ -100,10 +100,11 @@
                     <div class="err-wrap">
                         <div class="text-fields description">
                             <label for="description"><i class='bx bxs-notepad'></i>Category</label>
-                            <select id="fruitSelect" name="category">
+                            <select id="fruitSelect" name="categoryName">
                                 <option value="None Selected">None Selected</option>
-                                <option value="Power Tools">Power Tools</option>
-                                <option value="Power Tools">Outdoor Tools</option>
+                                <?php foreach ($data['category'] as $item) : ?>
+                                    <option value="<?= $item->categoryName ?>"><?= $item->categoryName ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                         <label class="err-msg">This is an example</label>

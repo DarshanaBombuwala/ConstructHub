@@ -404,7 +404,7 @@
     <script src="<?= ROOT ?>/assets/js/script.js"></script>
     <script>
 
-    </script>
+</script>
 
 
 </body>

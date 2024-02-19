@@ -94,7 +94,7 @@ class Companymanager extends Main_controller
         }
 
 
-        $this->view('companymanager/Quotations', $data);
+        $this->view('companymanager/Quotationsnew', $data);
     }
 
     public function Listing($type = null, $action = null, $id = null)
@@ -108,22 +108,22 @@ class Companymanager extends Main_controller
         $data['action'] = $action;
         $data['id'] = $id;
         $data['type'] = $type;
-        
+
         // $equipmentlisting = new Equipmentlisting;
 
 
         //show($_POST);
         if ($action == 'add') {
-            
-                
+
+
             // $currentTable = $_POST['type'];
             $listing = new Listing($type);
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 //show($_FILES);die;
-                
+
                 $folder = "uploads/images/";
-                
+
                 /*if(!file_exists($folder)){
                 echo "hello";die;
                 mkdir($folder,0777,true);
@@ -138,19 +138,16 @@ class Companymanager extends Main_controller
                     //echo("here");
                     $listing->insert($_POST);
                     //echo("here44");
-                   // $new = $listing->latest();
+                    // $new = $listing->latest();
                     // show($new);
                     //echo json_encode($new);
                 }
-               
+
                 $data['errors'] = $listing->errors;
                 $this->view('companymanager/ProfessionalListing', $data);
-              
-            }else{
+            } else {
                 $this->view('companymanager/ProfessionalListingForm', $data);
             }
-
-           
         } elseif ($action == 'edit') {
         } elseif ($action == 'delete') {
             $currentTable = $_POST['type'];
@@ -165,5 +162,16 @@ class Companymanager extends Main_controller
                 $this->view('companymanager/ProfessionalListing', $data);
             }
         }
+    }
+
+    public function quotationsnew()
+    {
+        //show("here");
+        //die;
+        $quotation = new Create('quotationRequests', []);
+        $data['quotation'] = $quotation->sortColumns('id', ['*'], [], 'asc');
+        //show($data);
+        //die;
+        $this->view('companymanager/Quotationsnew', $data);
     }
 }

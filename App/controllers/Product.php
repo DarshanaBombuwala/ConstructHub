@@ -6,16 +6,35 @@ class Product extends Main_controller
 {
     public function index()
     {
-        $this->view('productsNew');
+        $category = new Create('equipmentCategory', []);
+
+        $data['category'] = $category->findAll('asc', 'equipmentCategoryId');
+
+        $this->view('productlink', $data);
     }
 
-    public function fetchProducts($type)
+    public function fetchProducts($type = null, $category = null)
     {
+
         if ($type === 'equipments') {
+            //show('here');
             $equipmentlisting = new Equipmentlisting;
-            $data['rows'] = $equipmentlisting->findAll('asc', 'equipmentTypeId');
-            $jsonData = json_encode($data['rows']);
-            echo $jsonData;
+            if ($category === 'all') {
+                $data['rows'] = $equipmentlisting->findAll('asc', 'equipmentTypeId');
+            } else {
+                $conditions = array(
+                    'categoryName' => $category,
+                );
+                $data['rows'] = $equipmentlisting->sortAll('asc', 'equipmentTypeId', $conditions);
+            }
+
+
+
+            // show($data);
+
+
+            //  $jsonData = json_encode($data['rows']);
+            // echo $jsonData;
         }
         if ($type === 'vehicles') {
             $equipmentlisting = new Equipmentlisting;
@@ -26,19 +45,28 @@ class Product extends Main_controller
         if ($type === 'professionals') {
             $listing = new listing('professional');
             $data['rows'] = $listing->findAll('asc', 'professionalTypeId');
-            $jsonData = json_encode($data['rows']);
-            echo $jsonData;
+            //$jsonData = json_encode($data['rows']);
+            //echo $jsonData;
+
         }
+        $data['type'] = $type;
+        $this->view('productsallnew', $data);
     }
 
-    public function productview($type=null,$id = null)
+    public function productview($type = null, $id = null)
+
     {
+        $trimtype = rtrim($type, 's');
         $equipmentlisting = new Equipmentlisting;
-        $view=new Create($type.'listing',[]);
-        $data['row'] = $view->firstview($id);
+        $view = new Create($type . 'Listing', []);
+
+        //show($view);
+        //die;
+        $data['row'] = $view->firstview($id, $trimtype);
+
         //show($equipmentlisting->equipmentInstanceCount(1));
 
-
+        $data['type'] = $type;
         $this->view('p', $data);
     }
 
@@ -136,11 +164,12 @@ class Product extends Main_controller
         $this->view('reservationDetails', $data);
     }
 
-    public function reservedDays()
+    public function reservedDays($category=null)
     {
 
         $equipmentlisting = new Equipmentlisting;
         $reservations = $equipmentlisting->dates();
+
 
 
         // Function to get all dates between start and end date
@@ -153,11 +182,13 @@ class Product extends Main_controller
             $interval = new DateInterval('P1D');
             $dateRange = new DatePeriod($start, $interval, $end);
 
+          
+
             $dates = [];
             foreach ($dateRange as $date) {
                 $dates[] = $date->format('Y-m-d');
             }
-
+          
             return $dates;
         }
 
@@ -170,6 +201,7 @@ class Product extends Main_controller
 
             // Get dates between start and end date
             $dates = getDatesBetween($startDate, $endDate);
+            
 
             // Save dates for each equipment ID
             if (!isset($equipmentDates[$equipmentId])) {
@@ -178,7 +210,7 @@ class Product extends Main_controller
 
             $equipmentDates[$equipmentId] = array_merge($equipmentDates[$equipmentId], $dates);
         }
-
+       
         // Output the result
 
         $equipmentCountPerDay = [];
@@ -191,9 +223,11 @@ class Product extends Main_controller
                 }
             }
         }
-
-
+       // $jsonResult = json_encode($equipmentDates);
+        //echo $jsonResult;
+        
         $count = $equipmentlisting->count();
+        
 
         $expectedCount = $count[0]->recordCount; // Replace with your actual recordCount value
 
@@ -207,38 +241,76 @@ class Product extends Main_controller
         }
         $equipmentCountPerDay['expectedCount'] = $expectedCount;
 
-        header('Content-Type: application/json');
+        //header('Content-Type: application/json');
         $jsonResult = json_encode($equipmentCountPerDay);
         echo $jsonResult;
     }
 
-    public function requestQuotation($action = null, $id = null, $type = null)
+    public function requestQuotation($action = null, $type = null, $id = null)
     {
         $data = [];
         $data['action'] = $action;
         $data['id'] = $id;
         $data['type'] = $type;
+        $trimtype = rtrim($type, 's');
+        // show('here');
 
-        $quotationRequest = [
-            'table' => 'quotations',
-            'allowedColumns' => ['description', 'categoryname', 'estimation', 'profession'],
-        ];
-        $quotation = new Create($quotationRequest['table'], $quotationRequest['allowedColumns']);
 
         if ($action == 'create') {
-
-            
+            //show('here');
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+                $quotationRequest = [
+                    'table' => 'quotationRequests',
+                    'allowedColumns' => ['description', 'categoryname', 'estimation', 'profession', 'userid'],
+                ];
+                $quotation = new Create($quotationRequest['table'], $quotationRequest['allowedColumns']);
+                // show($quotation);
+                // die;
+
+                $_POST['userid'] = $_SESSION['USER_DATA']->id;
+                //show($_POST);
+                // die;
                 $quotation->insert($_POST);
                 //$data['row'] = $quotation->firstview($id);
                 $this->view('p', $data);
+            } else {
+                $view = new Create($type . 'Listing', []);
+                $data['row'] = $view->firstview($id, $trimtype);
+                $this->view('quotationRequest', $data);
             }
         } else if ($action == 'edit') {
         } else if ($action == 'delete') {
-        } else {
-            $this->view('quotationRequest', $data);
         }
+    }
+
+    public function webs($action = null)
+    {
+        if ($action === null) {
+            $this->view('Websocket');
+        } else {
+            $data = [];
+            $data['data'] = $_POST;
+            //show($data);
+            //die;
+            $this->view('Websocketdata', $data);
+        }
+    }
+
+    public function tempory()
+    {
+        $_POST['id'] = $_SESSION['USER_DATA']->id;
+        $data = $_POST;
+
+        $temporyReservation = [
+            'table' => 'tempory',
+            'allowedColumns' => ['startDate', 'endDate', 'quantity', 'id'],
+        ];
+
+        $temp = new Create($temporyReservation['table'],$temporyReservation['allowedColumns']);
+        $temp->insert($data);
+
+        echo json_encode('sucess');
     }
 }

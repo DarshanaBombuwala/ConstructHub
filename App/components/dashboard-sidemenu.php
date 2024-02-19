@@ -18,7 +18,7 @@
 <?php endif; ?>
 <?php if (Auth::is_cmanager()) : ?>
 	<a href="<?= ROOT ?>/companymanager" class="icon-a" <?php if (isset($current) && $current == 'Dashboard') echo 'id="current"'; ?>><i class="fa fa-dashboard icons"></i> <label>Dashboard</label></a>
-	<a href="<?= ROOT ?>/rentalmanager/quotations" class="icon-a" <?php if (isset($current) && $current == 'Quotation') echo 'id="current"'; ?>><i class="fa fa-cogs"></i> <label>Quotation</label></a>
+	<a href="<?= ROOT ?>/companymanager/quotationsnew" class="icon-a" <?php if (isset($current) && $current == 'Quotation') echo 'id="current"'; ?>><i class="fa fa-cogs"></i> <label>Quotation</label></a>
 	<a href="<?= ROOT ?>/companymanager/listing/professional" class="icon-a" <?php if (isset($current) && $current == 'professionalListing') echo 'id="current"'; ?>><i class="fa fa-list icons"></i> <label>Professional Listing</label></a>
 	<a href="#" class="icon-a"><i class="fa fa-shopping-bag icons"></i> <label>Dashboard</label></a>
 	<a href="#" class="icon-a"><i class="fa fa-tasks icons"></i> <label>Dashboard</label></a>

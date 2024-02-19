@@ -13,6 +13,8 @@
 
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
   <style>
     .flatpickr-calendar {
       background: white;
@@ -108,7 +110,7 @@
 
         <div class="basic-info">
 
-          <form method="post" action="<?= ROOT ?>/reservation">
+          <form>
             <label for="startDate">Start Date:</label>
             <input type="text" id="startDate" name="startDate" placeholder="yyyy-mm-dd 📅" required>
 
@@ -122,7 +124,7 @@
             <div class="purchase-info">
               <label for="quantity">Quantity:</label>
               <input type="number" id="quantity" name="quantity" min="1" value="1">
-              <button type="submit" class="btn reservation-btn" disabled>Reserve</button>
+              <button type="submit" class="btn reservation-btn" id='reserveButton' disabled>Reserve</button>
             </div>
 
             <!--<button type = "button" class = "btn">
@@ -135,9 +137,15 @@
 
         </div>
         <div class="purchase-info">
-          <button class="btn reservation-btn" onclick="togglePopup()"><a href="<?=ROOT?>/product/requestQuotation">
-          Reqeust Quotation
-          </a> </button>
+          <?php
+          $type = rtrim($data['type'], 's');
+          ?>
+          <button class="btn reservation-btn" onclick="togglePopup()">
+            <a href="<?= ROOT ?>/product/requestQuotation/create/<?php echo esc($data['type'] . '/' . esc($row[0]->{$type . 'TypeId'})); ?>">
+              Request Quotation
+            </a>
+          </button>
+
           <button class="btn add-to-cart-btn">Add to cart</button>
         </div>
 
@@ -145,12 +153,15 @@
       </div>
     </div>
   </div>
-  
 
 
-  <script src="<?= ROOT ?>/assets/js/p.js">
+  <script>
+var loggedIn = <?php echo Auth::logged_in(); ?>;
 
-  </script>
+
+</script>
+  <script src="<?= ROOT ?>/assets/js/p.js">  </script>
+ 
 </body>
 
 </html>
